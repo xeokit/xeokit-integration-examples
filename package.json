@@ -1,0 +1,23 @@
+{
+  "name": "xeokit-integration-examples",
+  "private": true,
+  "scripts": {
+    "dev": "dotenv -- turbo dev --no-daemon",
+    "build": "dotenv -- turbo build --no-daemon",
+    "start": "dotenv -- turbo start --no-daemon",
+    "lint": "turbo lint --no-daemon",
+    "clean": "turbo clean --no-daemon"
+  },
+  "packageManager": "pnpm@8.7.6",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@turbo/gen": "^1.12.4",
+    "cpx": "^1.5.0",
+    "dotenv-cli": "^7.2.1",
+    "rimraf": "^5.0.5",
+    "turbo": "^1.12.4"
+  }
+}
