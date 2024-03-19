@@ -16,7 +16,7 @@ window.onload = function () {
   const enableEditModels = requestParams.enableEditModels === 'true';
 
   const server = new Server({
-    dataDir: './data',
+    dataDir: './public',
   });
 
   const bimViewer = new BIMViewer(server, {

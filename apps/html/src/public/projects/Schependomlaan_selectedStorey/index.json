@@ -1,0 +1,44 @@
+{
+    "id": "Schependomlaan_SelectedStorey",
+    "name": "Schependomlaan",
+    "models": [
+        {
+            "id": "design",
+            "name": "Schependomlaan Design"
+        }
+    ],
+    "viewerConfigs": {
+        "backgroundColor": [
+            0.95,
+            0.95,
+            1.0
+        ]
+    },
+    "viewerContent": {
+        "modelsLoaded": [
+            "design"
+        ],
+        "objectColors": {
+            "IfcSpace": {
+                "opacity": 0.3
+            },
+            "IfcWindow": {
+                "opacity": 0.4
+            },
+            "IfcOpeningElement": {
+                "opacity": 0.3
+            },
+            "IfcPlate": {
+                "opacity": 0.3
+            }
+        }
+    },
+    "viewerState": {
+        "threeDEnabled": true,
+        "selectedStorey": "2SWZMQPyD9pfT9q87pgXa1",
+        "tabOpen": "objects",
+        "expandObjectsTree": 3,
+        "expandClassesTree": 1,
+        "expandStoreysTree": 1
+    }
+}
