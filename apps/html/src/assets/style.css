@@ -14,7 +14,7 @@ body {
   overflow: hidden;
 }
 
-#myViewer {
+#viewer {
   display: flex;
   width: 100%;
   height: 100%;
@@ -29,7 +29,7 @@ body {
   transition: all 300ms ease-in-out;
 }
 
-#myToolbar {
+#toolbar {
   min-width: 400px;
   top: 0;
   align-items: center;
@@ -42,7 +42,7 @@ body {
   transition: all 300ms ease-in-out;
 }
 
-#myCanvas {
+#canvas {
   width: 100%;
   height: 100%;
   background: #f2f2f2;
@@ -52,7 +52,7 @@ body {
   position: relative;
 }
 
-#myNavCubeCanvas {
+#nav-cube-canvas {
   position: absolute;
   width: 200px;
   height: 200px;
@@ -61,7 +61,7 @@ body {
   z-index: 200000;
 }
 
-#myExplorer {
+#explorer {
   position: fixed;
   height: 100%;
   color: #fff;
@@ -79,11 +79,11 @@ body {
   transition: all 300ms ease-in-out;
 }
 
-#explorer_toggle {
+#explorer-toggle {
   display: none;
 }
 
-.explorer_toggle_label {
+.explorer-toggle-label {
   position: absolute;
   top: 10px;
   left: 20px;
@@ -98,7 +98,7 @@ body {
   border: 2px solid #1d2453;
   padding: .375rem .75rem;
   border-radius: .25rem;
-  -webkit-appearance: button;
+  appearance: button;
   overflow: visible;
   margin: 0 2px 0 0;
   box-sizing: border-box;
@@ -108,53 +108,53 @@ body {
   transition: all 300ms ease-in-out;
 }
 
-.explorer_toggle_label:hover {
+.explorer-toggle-label:hover {
   cursor: pointer;
 }
 
-#explorer_toggle:checked+.explorer_toggle_label {
+#explorer-toggle:checked+.explorer-toggle-label {
   left: 480px;
   color: #fff;
   background-color: #03103F;
   border-color: #03103F;
 }
 
-#explorer_toggle:checked~#myExplorer {
+#explorer-toggle:checked~#explorer {
   left: 0;
 }
 
-#explorer_toggle:checked~#myViewer {
+#explorer-toggle:checked~#viewer {
   left: 460px;
   --left: 460;
   width: calc(100% - (var(--left) + var(--right)));
 }
 
-#explorer_toggle:checked~#myToolbar {
+#explorer-toggle:checked~#toolbar {
   left: 555px;
 }
 
-#explorer_toggle:not(:checked)+.explorer_toggle_label {
+#explorer-toggle:not(:checked)+.explorer-toggle-label {
   left: 20px;
   color: #fff;
   background-color: #03103F;
   border-color: #03103F;
 }
 
-#explorer_toggle:not(:checked)~#myExplorer {
+#explorer-toggle:not(:checked)~#explorer {
   left: -460px;
 }
 
-#explorer_toggle:not(:checked)~#myViewer {
+#explorer-toggle:not(:checked)~#viewer {
   left: 0;
   --left: 0;
   width: calc(100% - var(--right));
 }
 
-#explorer_toggle:not(:checked)~#myToolbar {
+#explorer-toggle:not(:checked)~#toolbar {
   left: 95px;
 }
 
-#myInspector {
+#inspector {
   position: absolute;
   height: 100%;
   color: #fff;
@@ -169,11 +169,11 @@ body {
   transition: all 300ms ease-in-out;
 }
 
-#inspector_toggle {
+#inspector-toggle {
   display: none;
 }
 
-.inspector_toggle_label {
+.inspector-toggle-label {
   position: absolute;
   top: 10px;
   right: 20px;
@@ -189,7 +189,7 @@ body {
   padding: .375rem .75rem;
   /* FIXME */
   border-radius: .25rem;
-  -webkit-appearance: button;
+  appearance: button;
   overflow: visible;
   margin: 0 2px 0 0;
   /* FIXME */
@@ -200,35 +200,60 @@ body {
   transition: all 300ms ease-in-out;
 }
 
-.inspector_toggle_label:hover {
+.inspector-toggle-label:hover {
   cursor: pointer;
 }
 
-#inspector_toggle:checked+.inspector_toggle_label {
+#inspector-toggle:checked+.inspector-toggle-label {
   right: 380px;
   color: #fff;
   background-color: #03103F;
   border-color: #03103F;
 }
 
-#inspector_toggle:checked~#myViewer {
+#inspector-toggle:checked~#viewer {
   --right: 360;
   right: 360px;
   width: calc(100% - (var(--left) + var(--right)));
 }
 
-#inspector_toggle:checked~#myInspector {
+#inspector-toggle:checked~#inspector {
   right: 0;
   --right: 0;
 }
 
-#inspector_toggle:not(:checked)~#myInspector {
+#inspector-toggle:not(:checked)~#inspector {
   right: -380px;
   --right: -380px;
 }
 
-#inspector_toggle:not(:checked)~#myViewer {
+#inspector-toggle:not(:checked)~#viewer {
   --right: 0;
   right: 0;
   width: calc(100% - var(--left));
+}
+
+#project-select {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  flex: 1 1 auto;
+  color: #03103F;
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid #1d2453;
+  padding: .375rem .75rem;
+  border-radius: .25rem;
+  appearance: button;
+  overflow: visible;
+  margin: 0 2px 0 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+  pointer-events: all;
+  z-index: 100000;
+  transition: all 300ms ease-in-out;
 }
