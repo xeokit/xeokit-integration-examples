@@ -14,26 +14,29 @@
 </head>
 
 <body>
-  <input type="checkbox" id="explorer_toggle" />
 
-  <label for="explorer_toggle" class="xeokit-i18n explorer_toggle_label xeokit-btn fas fa-2x fa-sitemap"
+  <input type="checkbox" id="explorer-toggle" />
+
+  <label for="explorer-toggle" class="xeokit-i18n explorer-toggle-label xeokit-btn fas fa-2x fa-sitemap"
     data-xeokit-i18ntip="toolbar.toggleExplorer" data-tippy-content="Toggle explorer"></label>
 
-  <input type="checkbox" id="inspector_toggle" />
+  <input type="checkbox" id="inspector-toggle" />
 
-  <label id="inspector_toggle_label" for="inspector_toggle"
-    class="xeokit-i18n inspector_toggle_label xeokit-btn fas fa-info-circle fa-2x"
+  <label id="inspector-toggle-label" for="inspector-toggle"
+    class="xeokit-i18n inspector-toggle-label xeokit-btn fas fa-info-circle fa-2x"
     data-xeokit-i18ntip="toolbar.toggleProperties" data-tippy-content="Toggle properties"></label>
 
-  <div id="myExplorer"></div>
+  <div id="explorer"></div>
 
-  <div id="myToolbar"></div>
+  <div id="toolbar"></div>
 
-  <div id="myInspector"></div>
+  <div id="inspector"></div>
 
-  <div id="myViewer">
-    <canvas id="myCanvas"></canvas>
-    <canvas id="myNavCubeCanvas"></canvas>
+  <select id="project-select"></select>
+
+  <div id="viewer">
+    <canvas id="canvas"></canvas>
+    <canvas id="nav-cube-canvas"></canvas>
   </div>
 </body>
 
