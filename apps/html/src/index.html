@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>xeokit BIM Viewer</title>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@xeokit/xeokit-bim-viewer@2.5.1-beta-22/dist/xeokit-bim-viewer.css"
+    type="text/css" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+
+  <input type="checkbox" id="explorer-toggle" />
+
+  <label for="explorer-toggle" class="xeokit-i18n explorer-toggle-label xeokit-btn fas fa-2x fa-sitemap"
+    data-xeokit-i18ntip="toolbar.toggleExplorer" data-tippy-content="Toggle explorer"></label>
+
+  <input type="checkbox" id="inspector-toggle" />
+
+  <label id="inspector-toggle-label" for="inspector-toggle"
+    class="xeokit-i18n inspector-toggle-label xeokit-btn fas fa-info-circle fa-2x"
+    data-xeokit-i18ntip="toolbar.toggleProperties" data-tippy-content="Toggle properties"></label>
+
+  <div id="explorer"></div>
+
+  <div id="toolbar"></div>
+
+  <div id="inspector"></div>
+
+  <select id="project-select"></select>
+
+  <div id="viewer">
+    <canvas id="canvas"></canvas>
+    <canvas id="nav-cube-canvas"></canvas>
+  </div>
+</body>
+
+<script src="https://kit.fontawesome.com/d129036538.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script src="main.js" type="module"></script>
+
+</html>

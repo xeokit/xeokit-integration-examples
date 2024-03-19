@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "dotenv -- turbo dev --no-daemon",
+    "dev-html": "dotenv -- turbo dev --no-daemon --filter=html",
     "build": "dotenv -- turbo build --no-daemon",
     "start": "dotenv -- turbo start --no-daemon",
     "lint": "turbo lint --no-daemon",
