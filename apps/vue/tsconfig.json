@@ -1,0 +1,24 @@
+{
+  "extends": "tsconfig/vite.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "exclude": [
+    "dist/**/*"
+  ],
+  "include": [
+    "./src/components.d.ts",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.vue",
+    "**/*.json",
+    "vite.config.mts"
+  ]
+}

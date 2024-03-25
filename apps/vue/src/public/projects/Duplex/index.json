@@ -1,0 +1,28 @@
+{
+    "id": "duplex",
+    "name": "Duplex",
+    "models": [
+        {
+            "id": "design",
+            "name": "Duplex Design"
+        },
+        {
+            "id": "mep",
+            "name": "Duplex MEP"
+        }
+    ],
+    "viewerConfigs": {
+    },
+    "viewerContent": {
+        "modelsLoaded": [
+            "design",
+            "mep"
+        ]
+    },
+    "viewerState": {
+        "tabOpen": "classes",
+        "expandObjectsTree": 1,
+        "expandClassesTree": 1,
+        "expandStoreysTree": 1
+    }
+}
