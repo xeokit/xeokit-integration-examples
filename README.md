@@ -11,3 +11,4 @@ Thanks to the provided examples, you will be able to experiment, test and adapt 
 # Examples
 
 - [HTML](./apps/html/README.md)
+- [Vue](./apps/vue/README.md)
