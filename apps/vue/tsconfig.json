@@ -9,6 +9,8 @@
     }
   },
   "exclude": [
+    "src/public/**/*",
+    "node_modules",
     "dist/**/*"
   ],
   "include": [
