@@ -4,8 +4,11 @@
   "scripts": {
     "dev": "dotenv -- turbo dev --no-daemon",
     "dev-html": "dotenv -- turbo dev --no-daemon --filter=html",
+    "dev-vue": "dotenv -- turbo dev --no-daemon --filter=vue",
     "build": "dotenv -- turbo build --no-daemon",
+    "build-vue": "dotenv -- turbo build --no-daemon --filter=vue",
     "start": "dotenv -- turbo start --no-daemon",
+    "start-vue": "dotenv -- turbo start --no-daemon --filter=vue",
     "lint": "turbo lint --no-daemon",
     "clean": "turbo clean --no-daemon"
   },

@@ -2,7 +2,6 @@
   "name": "vue",
   "private": true,
   "version": "0.0.0",
-  "main": "dist/electron/main/index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -12,7 +11,9 @@
     "test": "vitest"
   },
   "dependencies": {
-    "vue": "^3.4.21"
+    "tippy.js": "^6.3.7",
+    "vue": "^3.4.21",
+    "xeokit-bim-viewer": "^2.4.79"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
