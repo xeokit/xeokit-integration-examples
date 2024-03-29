@@ -21,7 +21,12 @@
   <div id="explorer" ref="explorerElement"></div>
   <div id="toolbar" ref="toolbarElement"></div>
   <div id="inspector" ref="inspectorElement"></div>
-  <select id="project-select" ref="projectSelectElement"></select>
+
+  <select id="project-select" v-model="selectedProject">
+    <option v-for="project in projects" :value="project.id" :key="project.id">
+      {{ project.label }}
+    </option>
+  </select>
 
   <div id="viewer" ref="viewerElement">
     <canvas id="canvas" ref="canvasElement"></canvas>
@@ -31,7 +36,7 @@
 
 <script lang="ts" setup>
 import tippy from 'tippy.js';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { BIMViewer, LocaleService, Server, messages as localeMessages } from 'xeokit-bim-viewer';
 
 const props = defineProps({
@@ -55,7 +60,9 @@ const toolbarElement = ref();
 const inspectorElement = ref();
 const navCubeCanvasElement = ref();
 const viewerElement = ref();
-const projectSelectElement = ref<HTMLSelectElement>();
+
+const selectedProject = ref<string>(props.project);
+const projects = ref<{ id: string; label: string }[]>([]);
 
 onMounted(() => {
   loadViewer();
@@ -97,6 +104,7 @@ function loadViewer() {
           localizedElement.dataset.xeokitI18n,
         );
       }
+
       if (localizedElement.dataset.xeokitI18ntip) {
         const translation = bimViewer.value.localeService.translate(
           localizedElement.dataset.xeokitI18ntip,
@@ -107,6 +115,7 @@ function loadViewer() {
           );
         }
       }
+
       if (localizedElement.dataset.tippyContent) {
         if (localizedElement._tippy) {
           localizedElement._tippy.setContent(localizedElement.dataset.tippyContent);
@@ -128,31 +137,20 @@ function loadViewer() {
   bimViewer.value.on('deleteModel', onViewerDeleteModel);
 
   server.value.getProjects(
-    ({ projects }) => {
-      projectSelectElement.value.addEventListener('change', (event) => {
-        bimViewer.value.unloadAllModels();
-        bimViewer.value.unloadProject();
-
-        const projectId = (event.target as HTMLInputElement).value;
-        loadProject(projectId);
-      });
-
-      for (const project of projects) {
-        const option = document.createElement('option');
-        option.value = project.id;
-        option.text = project.name;
-
-        if (project.id === props.project) option.selected = true;
-
-        projectSelectElement.value.add(option);
+    ({ projects: projectsArray }) => {
+      for (const project of projectsArray) {
+        projects.value.push({
+          id: project.id,
+          label: project.name,
+        });
       }
     },
     (error) => console.error(error),
   );
 
-  if (props.project) {
+  if (selectedProject.value) {
     isLoading.value = true;
-    loadProject(props.project);
+    loadProject(selectedProject.value);
   }
 }
 
@@ -188,4 +186,14 @@ function onViewerEditModel(event) {
 function onViewerDeleteModel(event) {
   console.log('deleteModel: ' + JSON.stringify(event, null, '\t'));
 }
+
+watch(
+  () => selectedProject.value,
+  (newValue) => {
+    if (newValue) {
+      isLoading.value = true;
+      loadProject(newValue);
+    }
+  },
+);
 </script>

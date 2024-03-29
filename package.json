@@ -5,10 +5,13 @@
     "dev": "dotenv -- turbo dev --no-daemon",
     "dev-html": "dotenv -- turbo dev --no-daemon --filter=html",
     "dev-vue": "dotenv -- turbo dev --no-daemon --filter=vue",
+    "dev-nuxt": "dotenv -- turbo dev --no-daemon --filter=nuxt",
     "build": "dotenv -- turbo build --no-daemon",
     "build-vue": "dotenv -- turbo build --no-daemon --filter=vue",
+    "build-nuxt": "dotenv -- turbo build --no-daemon --filter=nuxt",
     "start": "dotenv -- turbo start --no-daemon",
     "start-vue": "dotenv -- turbo start --no-daemon --filter=vue",
+    "start-nuxt": "dotenv -- turbo start --no-daemon --filter=nuxt",
     "lint": "turbo lint --no-daemon",
     "clean": "turbo clean --no-daemon"
   },
