@@ -1,0 +1,31 @@
+{
+    "id": "RevitSamples",
+    "name": "Revit Samples",
+    "models": [
+        {
+            "id": "rac",
+            "name": "RAC House Sample Project"
+        },
+        {
+            "id": "rac_advanced_sample_project",
+            "name": "RAC Advanced Sample Project",
+            "manifest": "manifest.json"
+        },
+        {
+            "id": "rme_advanced_sample_project",
+            "name": "RME Advanced Sample Project"
+        }
+    ],
+    "viewerConfigs": {
+        "backgroundColor": [
+            0.95,
+            0.95,
+            1.0
+        ]
+    },
+    "viewerContent": {
+        "modelsLoaded": [
+            "rac_advanced_sample_project"
+        ]
+    }
+}
