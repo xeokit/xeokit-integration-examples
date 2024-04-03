@@ -1,0 +1,243 @@
+#viewer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: stretch;
+  z-index: 10000;
+  /*overflow: hidden;*/
+  position: absolute;
+  left: 0;
+  right: 0;
+  --left: 0;
+  --right: 0;
+  transition: all 300ms ease-in-out;
+}
+
+#toolbar {
+  min-width: 400px;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 100000;
+  pointer-events: none;
+  position: fixed;
+  left: 95px;
+  transition: all 300ms ease-in-out;
+}
+
+#canvas {
+  width: 100%;
+  height: 100%;
+  background: #f2f2f2;
+  cursor: default;
+  pointer-events: all;
+  margin: 0;
+  position: relative;
+}
+
+#nav-cube-canvas {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  bottom: 0;
+  right: 0;
+  z-index: 200000;
+}
+
+#explorer {
+  position: fixed;
+  height: 100%;
+  color: #fff;
+  background: #03103F;
+  overflow: auto;
+  border-right: 2px solid #212529;
+  padding: 0px;
+  padding-bottom: 100px;
+  padding-left: 15px;
+  user-select: none;
+  top: 0;
+  left: -460px;
+  z-index: 10;
+  width: 460px;
+  transition: all 300ms ease-in-out;
+}
+
+#explorer-toggle {
+  display: none;
+}
+
+.explorer-toggle-label {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  flex: 1 1 auto;
+  color: #03103F;
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid #1d2453;
+  padding: .375rem .75rem;
+  border-radius: .25rem;
+  appearance: button;
+  overflow: visible;
+  margin: 0 2px 0 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+  pointer-events: all;
+  z-index: 100000;
+  transition: all 300ms ease-in-out;
+}
+
+.explorer-toggle-label:hover {
+  cursor: pointer;
+}
+
+#explorer-toggle:checked+.explorer-toggle-label {
+  left: 480px;
+  color: #fff;
+  background-color: #03103F;
+  border-color: #03103F;
+}
+
+#explorer-toggle:checked~#explorer {
+  left: 0;
+}
+
+#explorer-toggle:checked~#viewer {
+  left: 460px;
+  --left: 460;
+  width: calc(100% - (var(--left) + var(--right)));
+}
+
+#explorer-toggle:checked~#toolbar {
+  left: 555px;
+}
+
+#explorer-toggle:not(:checked)+.explorer-toggle-label {
+  left: 20px;
+  color: #fff;
+  background-color: #03103F;
+  border-color: #03103F;
+}
+
+#explorer-toggle:not(:checked)~#explorer {
+  left: -460px;
+}
+
+#explorer-toggle:not(:checked)~#viewer {
+  left: 0;
+  --left: 0;
+  width: calc(100% - var(--right));
+}
+
+#explorer-toggle:not(:checked)~#toolbar {
+  left: 95px;
+}
+
+#inspector {
+  position: absolute;
+  height: 100%;
+  color: #fff;
+  background: #03103F;
+  overflow: auto;
+  border-left: 2px solid #212529;
+  padding: 0;
+  top: 0;
+  right: -360px;
+  z-index: 40;
+  width: 358px;
+  transition: all 300ms ease-in-out;
+}
+
+#inspector-toggle {
+  display: none;
+}
+
+.inspector-toggle-label {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  flex: 1 1 auto;
+  color: #03103F;
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid #1d2453;
+  padding: .375rem .75rem;
+  /* FIXME */
+  border-radius: .25rem;
+  appearance: button;
+  overflow: visible;
+  margin: 0 2px 0 0;
+  /* FIXME */
+  box-sizing: border-box;
+  align-items: flex-start;
+  pointer-events: all;
+  z-index: 100000;
+  transition: all 300ms ease-in-out;
+}
+
+.inspector-toggle-label:hover {
+  cursor: pointer;
+}
+
+#inspector-toggle:checked+.inspector-toggle-label {
+  right: 380px;
+  color: #fff;
+  background-color: #03103F;
+  border-color: #03103F;
+}
+
+#inspector-toggle:checked~#viewer {
+  --right: 360;
+  right: 360px;
+  width: calc(100% - (var(--left) + var(--right)));
+}
+
+#inspector-toggle:checked~#inspector {
+  right: 0;
+  --right: 0;
+}
+
+#inspector-toggle:not(:checked)~#inspector {
+  right: -380px;
+  --right: -380px;
+}
+
+#inspector-toggle:not(:checked)~#viewer {
+  --right: 0;
+  right: 0;
+  width: calc(100% - var(--left));
+}
+
+#project-select {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  flex: 1 1 auto;
+  color: #03103F;
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid #1d2453;
+  padding: .375rem .75rem;
+  border-radius: .25rem;
+  appearance: button;
+  overflow: visible;
+  margin: 0 2px 0 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+  pointer-events: all;
+  z-index: 100000;
+  transition: all 300ms ease-in-out;
+}
