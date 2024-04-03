@@ -2,6 +2,12 @@
   "name": "react",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "dev": "cross-env PORT=8084 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -14,13 +20,14 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "xeokit-bim-viewer": "^2.4.79",
+    "tippy.js": "^6.3.7"
   },
-  "scripts": {
-    "dev": "cross-env PORT=8084 react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "config": "workspace:*",
+    "tsconfig": "workspace:*"
   },
   "eslintConfig": {
     "extends": [
@@ -39,8 +46,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3"
   }
 }
