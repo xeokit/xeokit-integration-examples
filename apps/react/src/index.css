@@ -1,0 +1,15 @@
+html,
+body {
+  height: 100%;
+  background: #f2f2f2;
+  touch-action: none;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 1.50;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  overflow: hidden;
+}

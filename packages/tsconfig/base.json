@@ -1,15 +1,16 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
-
   "compilerOptions": {
     "moduleResolution": "node",
     "sourceMap": true,
     "declaration": false,
     "target": "es2021",
     "module": "esnext",
-    "lib": ["es2021", "dom"],
-
+    "lib": [
+      "es2021",
+      "dom"
+    ],
     "allowJs": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -19,16 +20,13 @@
     "skipLibCheck": false,
     "skipDefaultLibCheck": false,
     "removeComments": true,
-
     "strict": true,
     "strictBindCallApply": false,
     "noImplicitReturns": true,
     "strictNullChecks": false,
     "noImplicitAny": false,
-
     "paths": {}
   },
-
   "exclude": [
     "node_modules",
     "dist",

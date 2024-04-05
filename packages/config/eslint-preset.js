@@ -13,7 +13,7 @@ module.exports = {
 
   overrides: [
     {
-      files: ['*.ts', '.tsx'],
+      files: ['*.ts'],
 
       extends: [
         'eslint:recommended',
@@ -39,6 +39,50 @@ module.exports = {
           },
         ],
 
+        '@typescript-eslint/no-floating-promises': 'off',
+        '@typescript-eslint/require-await': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-member-acces': 'off',
+        '@typescript-eslint/no-empty-interface': 'off',
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/no-unsafe-declaration-merging': 'off',
+        '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+
+        semi: ['error', 'always'],
+        quotes: ['warn', 'single', { allowTemplateLiterals: true }],
+      },
+    },
+
+    {
+      files: ['*.tsx'],
+
+      extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:prettier/recommended',
+        'plugin:react/recommended',
+      ],
+
+      env: {
+        es6: true,
+        browser: true,
+        node: true,
+      },
+
+      plugins: ['@typescript-eslint', 'prettier'],
+
+      rules: {
+        'prettier/prettier': [
+          'warn',
+          {
+            singleQuote: true,
+            endOfLine: 'auto',
+            printWidth: 100,
+          },
+        ],
+
+        'react/react-in-jsx-scope': 'off',
         '@typescript-eslint/no-floating-promises': 'off',
         '@typescript-eslint/require-await': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
