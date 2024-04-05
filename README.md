@@ -13,7 +13,7 @@ Thanks to the provided examples, you will be able to experiment, test and adapt 
 - [HTML](./apps/html/README.md) - example of use viewer in plain JavaScript and HTML
 - [Vue](./apps/vue/README.md) - example of use viewer in the [Vue framework](https://vuejs.org/)
 - [Nuxt](./apps/nuxt/README.md) - example of use viewer in the [Nuxt framework](https://nuxt.com/)
-- React (soon)
+- [React](./apps/react/README.md) - example of use viewer in the [React library](https://react.dev/)
 - Svelte (soon)
 
 ## Prerequisites 
@@ -53,4 +53,9 @@ pnpm dev-vue
 Nuxt example:
 ```bash
 pnpm dev-nuxt
+```
+
+React example:
+```bash
+pnpm dev-react
 ```

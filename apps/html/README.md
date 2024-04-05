@@ -1,6 +1,6 @@
 # xeokit-integration-examples - HTML example
 
-This package serves as a comprehensive demonstration of integrating Xeokit, a powerful WebGL-based 3D visualization engine, with Building Information Modeling (BIM) data within an HTML environment
+This package serves as a comprehensive demonstration of integrating Xeokit, a powerful WebGL-based 3D visualization engine, with Building Information Modeling (BIM) data within an HTML environment.
 
 ## Prerequisites 
 
