@@ -3,6 +3,7 @@ import tippy from 'tippy.js';
 import { BIMViewer, LocaleService, Server, messages as localeMessages } from 'xeokit-bim-viewer';
 
 import 'https://kit.fontawesome.com/d129036538.js';
+import 'tippy.js/dist/tippy.css';
 import 'xeokit-bim-viewer/dist/xeokit-bim-viewer.css';
 import './Viewer.css';
 
@@ -17,7 +18,8 @@ function Viewer() {
   const navCubeCanvasElement = useRef();
   const viewerElement = useRef();
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [selectedProject, setSelectedProject] = useState('OTCConferenceCenter');
+  const [projects, setProjects] = useState<{ id: string; label: string }[]>([]);
 
   useEffect(() => {
     if (!viewerLoaded.current) {
@@ -97,18 +99,17 @@ function Viewer() {
     server.current.getProjects(
       ({ projects: projectsArray }) => {
         for (const project of projectsArray) {
-          console.log(project);
+          setProjects((projects) => [...projects, { id: project.id, label: project.name }]);
         }
       },
       (error) => console.error(error),
     );
 
-    loadProject('OTCConferenceCenter');
+    loadProject(selectedProject);
   }
 
   function loadProject(projectId: string, modelId?: string, tab?: string) {
     if (!bimViewer.current) return;
-    setIsLoading(true);
 
     bimViewer.current.loadProject(
       projectId,
@@ -116,11 +117,9 @@ function Viewer() {
         if (modelId) bimViewer.current.loadModel(modelId, null, null);
         if (tab) bimViewer.current.openTab(tab);
         bimViewer.current.resetView();
-        setIsLoading(false);
       },
       (error) => {
         console.error(error);
-        setIsLoading(false);
       },
     );
   }
@@ -139,6 +138,12 @@ function Viewer() {
 
   function onViewerDeleteModel(event) {
     console.log('deleteModel: ' + JSON.stringify(event, null, '\t'));
+  }
+
+  function onProjectSelectChange(event) {
+    const projectId = event.target.value;
+    setSelectedProject(projectId);
+    loadProject(projectId);
   }
 
   return (
@@ -161,6 +166,15 @@ function Viewer() {
       <div id="explorer" ref={explorerElement} />
       <div id="toolbar" ref={toolbarElement} />
       <div id="inspector" ref={inspectorElement} />
+
+      <select id="project-select" onChange={onProjectSelectChange} value={selectedProject}>
+        {projects.map((project) => (
+          <option key={project.id} value={project.id}>
+            {project.label}
+          </option>
+        ))}
+      </select>
+
       <div id="viewer" ref={viewerElement}>
         <canvas id="canvas" ref={canvasElement} />
         <canvas id="nav-cube-canvas" ref={navCubeCanvasElement} />
