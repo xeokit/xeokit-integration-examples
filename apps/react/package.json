@@ -30,12 +30,6 @@
     "react-app-rewired": "^2.2.1",
     "tsconfig": "workspace:*"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
